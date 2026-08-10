@@ -57,3 +57,11 @@ export async function listDocuments(): Promise<UploadedDocument[]> {
   const res = await fetch(`${API_BASE_URL}/api/documents`);
   return handleResponse<UploadedDocument[]>(res);
 }
+
+export async function deleteDocument(id: string): Promise<void> {
+  const res = await fetch(`${API_BASE_URL}/api/documents/${id}`, { method: "DELETE" });
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`Request failed (${res.status}): ${body || res.statusText}`);
+  }
+}

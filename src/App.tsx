@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ChatWindow from "./ChatWindow";
 import DocumentUploader from "./DocumentUploader";
+import DocumentTable from "./DocumentTable";
 import "./App.css";
 import { useAuth } from "./Auth";
 import Login from "./Login";
@@ -65,6 +66,7 @@ function App() {
         {tab === "documents" && (
           <section className="panel uploader-panel">
             <DocumentUploader />
+            <DocumentTable />
           </section>
         )}
       </main>
